@@ -7,10 +7,11 @@ import scipy
 import scipy.misc
 import scipy.cluster
 
-NUM_CLUSTERS = 5
+NUM_CLUSTERS = 3
 
 print('reading image')
 im = Image.open('polaroid_palette/imgs/test5.jpg')
+print (type(im))
 im = im.resize((150, 150))      # optional, to reduce time
 ar = np.asarray(im)
 shape = ar.shape

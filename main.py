@@ -5,7 +5,7 @@ from scipy.cluster.vq import whiten, kmeans
 
 
 #set up image to be read (convert to pixels)
-img = cv2.imread('polaroid_palette/imgs/test4.jpg')
+img = cv2.imread('polaroid_palette/imgs/test5.jpg')
 
 scale_percent = .50 
 width = int(img.shape[1] * scale_percent)
@@ -40,39 +40,45 @@ image_df["scaled_blue"] = whiten(image_df["blue"])
 
 # # implement kmeans method & elbow plot (to determine cluster size)
 distortion = []
-cluster = range(1,11)
+cluster = range(1,7)
 
 for x in cluster:
     center, d = kmeans(image_df[["scaled_red", "scaled_green", "scaled_blue"]], x)
+    print ("wot up")
     distortion.append(d)
 
 
 plt.plot(cluster, distortion)
 plt.xticks(cluster)
-plt.savefig("e_plot.png")
+plt.savefig("e_plot_goal.png")
 plt.show()
 
 # obtain cluster centers (standardized value = actual value/std) (append each color cluster)
 
-cluster_num = 5 #obtained from elbow plot 
+# cluster_num = 5 #obtained from elbow plot 
 
-cluster_center, n = kmeans(image_df[["scaled_red", "scaled_green", "scaled_blue"]], cluster_num)
+# cluster_center, n = kmeans(image_df[["scaled_red", "scaled_green", "scaled_blue"]], cluster_num)
 
-r_std, g_std, b_std = image_df[["red", "green", "blue"]].std()
+# r_std, g_std, b_std = image_df[["red", "green", "blue"]].std()
 
 
-main_colors = []
 
-for x in cluster_center:
-    red, green, blue = x 
-    scaled_r = (red * r_std) /255
-    scaled_g = (green * g_std) /255
-    scaled_b = (blue * b_std)/ 255
-    main_colors.append((scaled_r, scaled_g, scaled_b)) 
 
-print (main_colors)
-plt.imshow([main_colors])
-plt.savefig("colors.png")
-plt.show() 
+
+
+
+# main_colors = []
+
+# for x in cluster_center:
+#     red, green, blue = x 
+#     scaled_r = (red * r_std) /255
+#     scaled_g = (green * g_std) /255
+#     scaled_b = (blue * b_std)/ 255
+#     main_colors.append((scaled_r, scaled_g, scaled_b)) 
+
+# print (main_colors)
+# plt.imshow([main_colors])
+# plt.savefig("colors.png")
+# plt.show() 
 
 
