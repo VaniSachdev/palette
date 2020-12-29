@@ -47,8 +47,7 @@ class Color:
                 c.append(int(color*255))
             c_tuple = tuple(c)
             all_colors.append(c_tuple)
-        # print (all_colors)
-                
+    
       
         hex_colors = [] 
     
@@ -66,8 +65,3 @@ class Color:
         plt.show() 
 
 
-Color_object = Color("polaroid_palette/imgs/test5.jpg")
-color = Color_object.main_colors()
-hex = Color_object.hex(color)
-print (hex)
-drawpls = Color_object.draw(color)

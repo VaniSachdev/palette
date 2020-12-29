@@ -72,6 +72,3 @@ class ElbowPlot:
         plt.savefig("e_plot.png")
         plt.show()
 
-# test = ElbowPlot("polaroid_palette/imgs/test5.jpg")
-# cluster, distortion = test.implement_kmeans()
-# draw = test.draw_elbow_plot(cluster, distortion)

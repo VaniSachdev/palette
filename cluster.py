@@ -38,7 +38,3 @@ class Cluster:
 
         return num_cluster, self.whiten_df
 
-# test = Cluster("polaroid_palette/imgs/test5.jpg")
-# max, whiten_df = test.max_distance()
-
-# print (max)
